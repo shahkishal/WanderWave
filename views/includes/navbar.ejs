@@ -1,0 +1,94 @@
+<style>
+  .navSearch {
+    /* border:1px solid rgb(186, 186, 186); */
+    box-shadow: 0px 0px 5px;
+
+    border-radius: 30px;
+    transition: 0.2s;
+  }
+
+  .btn-search {
+    background-color: #fe424d !important;
+    color: #fff !important;
+    border-radius: 50% !important;
+    margin: 8px !important;
+  }
+
+  .btn-search:hover {
+    background-color: #fe424d;
+    color: #fff;
+  }
+
+  .navSearch form input {
+
+    border-radius: 30px;
+    border: none;
+    width: 25rem;
+    transition: 0.2s;
+  }
+
+  .navSearch:hover {
+
+    background-color: #ececec;
+  }
+
+  .navSearch form input:hover {
+
+    background-color: #ececec;
+  }
+
+  .navSearch form input:focus {
+    outline: none;
+    box-shadow: none;
+
+  }
+  .small{
+    display: none;
+   }
+  @media (max-width: 800px) {
+   .navSearch {
+   display: none;
+   }
+   .small{
+    display: flex;
+    margin: auto;
+   }
+   .big{
+    display: none;
+   }
+}
+</style>
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="navbar-nav ms-auto small">
+    <a class="nav-link title " href="/listings"><img src="/image/logo.png"><span>WanderWave</span></a>
+
+  </div>
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav big">
+        <a class="nav-link title " href="/listings"><img src="/image/logo.png"><span>WanderWave</span></a>
+
+      </div>
+      <div class="navbar-nav ms-auto navSearch">
+        <form class="d-flex" role="search" action="/listings/filter/search" method="POST">
+          <input class="form-control me-2" name="search_data" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i> </button>
+        </form>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">Add new Listing</a>
+        <% if(!currUser){%>
+          <a class="nav-link" href="/signup"><b>Sign up</b></a>
+          <a class="nav-link" href="/login"><b>Log in</b></a>
+          <%}%>
+            <%if(currUser){%>
+              <a class="nav-link" href="/logout"><b>Log out</b></a>
+              <%}%>
+      </div>
+    </div>
+  </div>
+</nav>
